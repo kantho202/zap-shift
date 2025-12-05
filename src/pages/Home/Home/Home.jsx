@@ -7,10 +7,16 @@ import Delivery from './Delivery/Delivery';
 import Merchant from './Merchant/Merchant';
 import Reviews from './Reviews/Reviews';
 import FreQuently from './FreQuently/FreeeQuently';
+import useAuth from '../../../hooks/useAuth';
+import Loading from '../../../components/Loading/Loading';
 
 
 const reviewsPromise =fetch('/public/reviews.json').then(res=>res.json())
 const Home = () => {
+    const {loading}=useAuth()
+    if(loading){
+        return <Loading></Loading>
+    }
     return (
         <div>
         <Banner></Banner>

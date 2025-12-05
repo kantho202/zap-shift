@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useLoaderData } from 'react-router';
 const Coverage = () => {
   const serviceCenters = useLoaderData();
+  const mapRef  =useRef(null)
   const handleSearch =(e)=>{
     e.preventDefault()
     const location =e.target.location.value;
-    const district =serviceCenters.find(c=>c.district.toLowerCase().include(location.toLowerCase()  ))
+    const district =serviceCenters.find(c=>c.district.toLowerCase().includes(location.toLowerCase()))
     if(district){
-      const coord =[district.latitude.district.longitude]
+      const coord =[district.latitude,district.longitude]
       console.log(district,coord)
+      mapRef.current.flyTo(coord,14)
     }
   }
   // console.log(serviceCenter)
@@ -40,7 +42,7 @@ const Coverage = () => {
           required placeholder="Search" />
 
         </label>
-        <button className="btn btn-primary join-item rounded-[50px] ">Search</button>
+        <button className="btn btn-primary join-item rounded-[50px] text-black">Search</button>
        </form>
       </div>
       <h1 className='font-extrabold text-secondary text-3xl pb-12'>We deliver almost all over Bangladesh</h1>
@@ -48,7 +50,8 @@ const Coverage = () => {
       <div className='h-550px]  '>
         <MapContainer
           className='h-[550px] '
-          center={position} zoom={7} scrollWheelZoom={false}>
+          center={position} zoom={7} ref={mapRef}
+          scrollWheelZoom={false}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

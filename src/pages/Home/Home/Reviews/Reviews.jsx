@@ -5,7 +5,7 @@ import { Autoplay, EffectCoverflow, Pagination } from 'swiper/modules';
 import ReviewCard from './ReviewCard';
 const Reviews = ({ reviewsPromise }) => {
     const reviews = use(reviewsPromise)
-    console.log(reviews)
+    // console.log(reviews)
     return (
         <div className='pb-32'>
             <img src={customer} className='mx-auto pb-5' alt="" />

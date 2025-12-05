@@ -1,16 +1,38 @@
 import React from 'react';
 import Logo from '../../components/Logo/Logo';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 import { BsArrowUpRightCircleFill } from 'react-icons/bs';
+import useAuth from '../../hooks/useAuth';
 
 const Navbar = () => {
-    const links =<>
-        <NavLink to="" className="text-base pl-9"><li>Service</li></NavLink>
-        <NavLink to="/coverage" className="text-base pl-9"><li>Coverage</li></NavLink>
-        <NavLink to="" className="text-base pl-9"><li>About Us</li></NavLink>
-        <NavLink to="" className="text-base pl-9"><li>Pricing</li></NavLink>
-        <NavLink to="" className="text-base pl-9"><li>Blog</li></NavLink>
-        <NavLink to="" className="text-base pl-9"><li>Content</li></NavLink>
+    const { user, signOutUser } = useAuth()
+    const handleSignOut = () => {
+        signOutUser()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+    const links = <>
+        <NavLink to="/service" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Service</li></NavLink>
+        <NavLink to="/coverage" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Coverage</li></NavLink>
+        <NavLink to="/aboutUs" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>About Us</li></NavLink>
+        <NavLink to="/pricing" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Pricing</li></NavLink>
+        <NavLink to="/rider" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Be a rider</li></NavLink>
+
+        {
+            user &&<>
+
+            <NavLink to="/add-parcel" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Add a parcel</li></NavLink> 
+            <NavLink to="/dashboard/my-parcels" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>My parcel</li></NavLink> 
+            <NavLink to="/dashboard" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Dashboard</li></NavLink> 
+            
+            </> 
+        }
+        {/* <NavLink to="/blog" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Blog</li></NavLink>
+        <NavLink to="/content" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Content</li></NavLink> */}
     </>
     return (
         <div className="navbar rounded-2xl bg-white mt-7 shadow-sm px-8 py-6">
@@ -25,7 +47,7 @@ const Navbar = () => {
                         {links}
                     </ul>
                 </div>
-                <a href='/' className=" text-xl"><Logo></Logo></a>
+                <Logo></Logo>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -33,9 +55,20 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn mr-3">SignIn</a>
-                <a className="btn btn-primary text-secondary">Sign Up</a>
-                <BsArrowUpRightCircleFill size={35} color='text-primary'/>
+                {
+                    user ? <>
+                        <Link to="/login" onClick={handleSignOut} className='btn mr-3'>Signout</Link>
+                        <Link to="/rider" className="btn btn-primary text-secondary rounded-[10px]">Be a rider</Link>
+                    </>
+                    :
+                    <>
+                     <Link  to="/login" className="btn mr-3 rounded-[10px]">SignIn</Link>
+                     <Link to="/rider" className="btn btn-primary text-secondary rounded-[10px]">Be a rider</Link>
+                    </>
+
+                }
+
+                <BsArrowUpRightCircleFill size={35} color='text-primary' />
             </div>
         </div>
     );
