@@ -1,74 +1,92 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../../components/Logo/Logo';
 import { Link, NavLink } from 'react-router';
-import { BsArrowUpRightCircleFill } from 'react-icons/bs';
 import useAuth from '../../hooks/useAuth';
+import { RxHamburgerMenu } from 'react-icons/rx';
+import { IoCloseOutline } from 'react-icons/io5';
 
 const Navbar = () => {
     const { user, signOutUser } = useAuth()
+    const [menuOpen, setMenuOpen] = useState(false)
+
     const handleSignOut = () => {
-        signOutUser()
-            .then(result => {
-                console.log(result.user)
-            })
-            .catch(error => {
-                console.log(error)
-            })
+        signOutUser().catch(error => console.log(error))
     }
-    const links = <>
-        <NavLink to="/service" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Service</li></NavLink>
-        <NavLink to="/coverage" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Coverage</li></NavLink>
-        <NavLink to="/aboutUs" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>About Us</li></NavLink>
-        <NavLink to="/pricing" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Pricing</li></NavLink>
-        <NavLink to="/rider" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Be a rider</li></NavLink>
 
-        {
-            user &&<>
+    const navLinkClass = ({ isActive }) =>
+        `block px-5 py-2.5 rounded-full text-base font-medium transition-colors ${isActive ? 'bg-primary text-secondary' : 'hover:bg-base-200'}`
 
-            <NavLink to="/add-parcel" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Add a parcel</li></NavLink> 
-            <NavLink to="/dashboard/my-parcels" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>My parcel</li></NavLink> 
-            <NavLink to="/dashboard" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Dashboard</li></NavLink> 
-            
-            </> 
-        }
-        {/* <NavLink to="/blog" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Blog</li></NavLink>
-        <NavLink to="/content" className="text-base pl-"><li className='px-5 py-2 rounded-[50px]'>Content</li></NavLink> */}
-    </>
     return (
-        <div className="navbar rounded-2xl bg-white mt-7 shadow-sm px-8 py-6">
-            <div className="navbar-start">
-                <div className="dropdown">
-                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-                    </div>
-                    <ul
-                        tabIndex="-1"
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        {links}
+        <nav className="bg-white rounded-2xl mt-7 shadow-sm px-6 sm:px-10 py-5 relative z-50">
+            <div className="flex items-center justify-between">
+
+                {/* Logo */}
+                <Logo />
+
+                {/* Desktop links */}
+                <ul className="hidden lg:flex items-center gap-1">
+                    <li><NavLink to="/service" className={navLinkClass}>Service</NavLink></li>
+                    <li><NavLink to="/coverage" className={navLinkClass}>Coverage</NavLink></li>
+                    <li><NavLink to="/aboutUs" className={navLinkClass}>About Us</NavLink></li>
+                    <li><NavLink to="/pricing" className={navLinkClass}>Pricing</NavLink></li>
+                    <li><NavLink to="/rider" className={navLinkClass}>Be a Rider</NavLink></li>
+                    {user && <>
+                        <li><NavLink to="/add-parcel" className={navLinkClass}>Add Parcel</NavLink></li>
+                        <li><NavLink to="/dashboard/my-parcels" className={navLinkClass}>My Parcels</NavLink></li>
+                        <li><NavLink to="/dashboard" className={navLinkClass}>Dashboard</NavLink></li>
+                    </>}
+                </ul>
+
+                {/* Desktop auth buttons */}
+                <div className="hidden lg:flex items-center gap-3">
+                    {user ? (
+                        <button onClick={handleSignOut} className="btn btn-md rounded-full px-6">Sign Out</button>
+                    ) : (
+                        <>
+                            <Link to="/login" className="btn btn-md rounded-full px-6">Sign In</Link>
+                            <Link to="/rider" className="btn btn-md btn-primary text-secondary rounded-full px-6">Be a Rider</Link>
+                        </>
+                    )}
+                </div>
+
+                {/* Mobile hamburger */}
+                <button
+                    className="lg:hidden btn btn-ghost btn-sm"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    aria-label="Toggle menu"
+                >
+                    {menuOpen ? <IoCloseOutline size={24} /> : <RxHamburgerMenu size={22} />}
+                </button>
+            </div>
+
+            {/* Mobile dropdown menu */}
+            {menuOpen && (
+                <div className="lg:hidden mt-3 pb-3 border-t border-base-200">
+                    <ul className="flex flex-col gap-1 pt-3">
+                        <li><NavLink to="/service" className={navLinkClass} onClick={() => setMenuOpen(false)}>Service</NavLink></li>
+                        <li><NavLink to="/coverage" className={navLinkClass} onClick={() => setMenuOpen(false)}>Coverage</NavLink></li>
+                        <li><NavLink to="/aboutUs" className={navLinkClass} onClick={() => setMenuOpen(false)}>About Us</NavLink></li>
+                        <li><NavLink to="/pricing" className={navLinkClass} onClick={() => setMenuOpen(false)}>Pricing</NavLink></li>
+                        <li><NavLink to="/rider" className={navLinkClass} onClick={() => setMenuOpen(false)}>Be a Rider</NavLink></li>
+                        {user && <>
+                            <li><NavLink to="/add-parcel" className={navLinkClass} onClick={() => setMenuOpen(false)}>Add Parcel</NavLink></li>
+                            <li><NavLink to="/dashboard/my-parcels" className={navLinkClass} onClick={() => setMenuOpen(false)}>My Parcels</NavLink></li>
+                            <li><NavLink to="/dashboard" className={navLinkClass} onClick={() => setMenuOpen(false)}>Dashboard</NavLink></li>
+                        </>}
+                        <li className="pt-2 flex flex-col gap-2 px-4">
+                            {user ? (
+                                <button onClick={() => { handleSignOut(); setMenuOpen(false) }} className="btn btn-sm w-full rounded-full">Sign Out</button>
+                            ) : (
+                                <>
+                                    <Link to="/login" onClick={() => setMenuOpen(false)} className="btn btn-sm w-full rounded-full">Sign In</Link>
+                                    <Link to="/rider" onClick={() => setMenuOpen(false)} className="btn btn-sm btn-primary text-secondary w-full rounded-full">Be a Rider</Link>
+                                </>
+                            )}
+                        </li>
                     </ul>
                 </div>
-                <Logo></Logo>
-            </div>
-            <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1">
-                    {links}
-                </ul>
-            </div>
-            <div className="navbar-end gap-2">
-                {
-                    user ? <>
-                        <Link to="/login" onClick={handleSignOut} className='btn btn-sm md:btn-md mr-1'>Signout</Link>
-                        <Link to="/rider" className="btn btn-sm md:btn-md btn-primary text-secondary rounded-[10px] hidden sm:flex">Be a rider</Link>
-                    </>
-                    :
-                    <>
-                     <Link to="/login" className="btn btn-sm md:btn-md mr-1 rounded-[10px]">SignIn</Link>
-                     <Link to="/rider" className="btn btn-sm md:btn-md btn-primary text-secondary rounded-[10px] hidden sm:flex">Be a rider</Link>
-                    </>
-                }
-                <BsArrowUpRightCircleFill size={28} className='text-primary hidden md:block' />
-            </div>
-        </div>
+            )}
+        </nav>
     );
 };
 

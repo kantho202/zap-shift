@@ -3,14 +3,15 @@ import Logo from '../../components/Logo/Logo';
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal rounded-[32px] footer-center text-primary-content p-8 mt-10">
+    <footer className="footer footer-horizontal rounded-[32px] footer-center bg-[#0B0B0B] text-white p-6 sm:p-8 md:p-10 mt-10">
       <aside>
         <Logo></Logo>
-        <p className="font-bold text-center">
-          Zap Shift Courier<br />
+        <p className="font-bold text-sm sm:text-base text-center">
+          Zap Shift Courier
+          <br />
           Fast. Reliable. Delivered.
         </p>
-        <p className='text-sm'>Copyright © {new Date().getFullYear()} - All right reserved</p>
+        <p className="text-xs sm:text-sm text-gray-300">Copyright © {new Date().getFullYear()} - All right reserved</p>
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">
