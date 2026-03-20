@@ -8,6 +8,8 @@
 
 A full-stack parcel delivery management platform connecting **users**, **riders**, and **admins** — with real-time tracking, smart cost calculation, and seamless payments.
 
+🌐 **Live Site:** [https://zap-shift-45b3e.web.app](https://zap-shift-45b3e.web.app/)
+
 [![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Firebase-orange?style=for-the-badge)](https://zap-shift-45b3e.web.app/)
 [![Backend](https://img.shields.io/badge/🔗_Backend_API-Vercel-black?style=for-the-badge)](https://zap-shift-server-ten-sandy.vercel.app)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
@@ -114,7 +116,7 @@ Auto-logout triggers on `401` / `403` responses via Axios response interceptor.
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/zap-shift.git
+git clone https://github.com/your-username/zap-shift.git  # replace with your repo URL
 cd zap-shift
 
 # 2. Install dependencies
