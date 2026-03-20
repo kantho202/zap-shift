@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import SocialLogin from './SocialLogin';
-import Loading from '../../components/Loading/Loading';
+
 
 const LogIn = () => {
     const {register ,handleSubmit,formState:{errors}}=useForm()

@@ -12,6 +12,7 @@ const AdminDashboardHome = () => {
 
         }
     })
+    
     return (
         <div>
             <h2 className="text-4xl">admin dashing</h2>

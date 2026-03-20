@@ -11,7 +11,7 @@ import useAuth from '../../../hooks/useAuth';
 import Loading from '../../../components/Loading/Loading';
 
 
-const reviewsPromise =fetch('/public/reviews.json').then(res=>res.json())
+const reviewsPromise = fetch('/reviews.json').then(res => res.json())
 const Home = () => {
     const {loading}=useAuth()
     if(loading){
