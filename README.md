@@ -8,7 +8,7 @@
 
 A full-stack parcel delivery management platform connecting **users**, **riders**, and **admins** — with real-time tracking, smart cost calculation, and seamless payments.
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Firebase-orange?style=for-the-badge)](https://zap-shift-45b3e.web.app)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Firebase-orange?style=for-the-badge)](https://zap-shift-45b3e.web.app/)
 [![Backend](https://img.shields.io/badge/🔗_Backend_API-Vercel-black?style=for-the-badge)](https://zap-shift-server-ten-sandy.vercel.app)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev)
 [![Firebase](https://img.shields.io/badge/Firebase-Auth_&_Hosting-FFCA28?style=for-the-badge&logo=firebase)](https://firebase.google.com)
