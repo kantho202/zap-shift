@@ -14,7 +14,7 @@ const Banner = () => {
         >
             <div className='relative'>
                 <img src={bannerImg1} />
-                <div className=' absolute top-114 ml-22'>
+                <div className=' absolute top-108 ml-22'>
                     <p className='text-left'>Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. 
                         From personal <br /> packages to business shipments — we deliver on time, every time.</p> <br />
                    <div className='flex absolute top-15'>

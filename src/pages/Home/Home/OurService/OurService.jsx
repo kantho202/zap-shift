@@ -36,10 +36,10 @@ const OurService = () => {
 
     ]
     return (
-        <div className='bg-secondary p-26 rounded-4xl mb-[100px]'>
-            <h1 className='text-white font-extrabold text-center text-[40px]'>Our Service</h1>
-            <p className='text-center text-[#DADADA] pt-4 pb-8'>Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to <br /> business shipments — we deliver on time, every time.</p>
-                 <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3  gap-6'>
+        <div className='bg-secondary px-6 sm:px-12 md:px-20 py-16 rounded-4xl mb-[100px]'>
+            <h1 className='text-white font-extrabold text-center text-2xl sm:text-3xl md:text-[40px]'>Our Service</h1>
+            <p className='text-center text-[#DADADA] pt-4 pb-8 text-sm sm:text-base'>Enjoy fast, reliable parcel delivery with real-time tracking and zero hassle. From personal packages to business shipments — we deliver on time, every time.</p>
+            <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
              {
                 services.map((items,index)=>(
                     <div key={index} className='p-8 shadow-lg rounded-3xl bg-white hover:bg-primary  '>

@@ -71,10 +71,10 @@ const ApproveRiders = () => {
                 });
     }
     return (
-        <div>
-            <h1>Approved riders : {riders.length} </h1>
+        <div className='p-4 md:p-6'>
+            <h1 className='text-2xl font-bold mb-4'>Approve Riders ({riders.length})</h1>
             <div className="overflow-x-auto">
-                <table className="table table-zebra">
+                <table className="table table-zebra min-w-[750px]">
                     {/* head */}
                     <thead>
                         <tr>

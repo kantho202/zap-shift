@@ -64,10 +64,10 @@ const MyParcel = () => {
 
     }
     return (
-        <div className='w-7xl mx-auto'>
-            this is parcels{parcels.length}
-            <div className="overflow-x-auto">
-                <table className="table table-zebra">
+        <div className='p-4 md:p-6'>
+            <h2 className='text-xl font-bold mb-4'>My Parcels ({parcels.length})</h2>
+            <div className="overflow-x-auto w-full">
+                <table className="table table-zebra min-w-[600px]">
                     {/* head */}
                     <thead>
                         <tr>

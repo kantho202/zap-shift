@@ -2,11 +2,11 @@ import React from 'react';
 
 const FreQuently = () => {
     return (
-        <div className='lg:px-52 '>
-            <h1 className='font-extrabold text-[40px] text-secondary md:text-center lg:text-center'>Frequently Asked Question (FAQ)</h1>
-            <p className='text-[#606060] font-normal text-base pb-8 md:text-center lg:text-center pt-4'>
+        <div className='px-4 sm:px-8 md:px-20 lg:px-52'>
+            <h1 className='font-extrabold text-2xl sm:text-3xl md:text-[40px] text-secondary text-center'>Frequently Asked Question (FAQ)</h1>
+            <p className='text-[#606060] font-normal text-sm sm:text-base pb-8 text-center pt-4'>
                 Enhance posture, mobility, and well-being effortlessly with Posture Pro. Achieve proper alignment,
-                reduce <br /> pain, and strengthen your body with ease!</p>
+                reduce pain, and strengthen your body with ease!</p>
 
 
             <details className="collapse  collapse-arrow border-base-300 hover:bg-[#C3DFE2] border mb-4">

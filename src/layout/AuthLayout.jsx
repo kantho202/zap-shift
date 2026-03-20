@@ -10,22 +10,15 @@ const AuthLayout = () => {
         return <Loading></Loading>
     }
     return (
-        <div className='grid grid-cols-2 h-full min-h-screen '>
-            <div className='bg-white flex-1 flex justify-center h-full'>
-                <div className='w-7xl mx-auto pt-8 pl-14'>
+        <div className='grid grid-cols-1 md:grid-cols-2 min-h-screen'>
+            <div className='bg-white flex justify-center'>
+                <div className='w-full max-w-lg pt-8 px-6 sm:px-10'>
                     <Logo></Logo>
-                    <div className='flex'>
-                        <div className='  h-full flex-1 '>
-                            <Outlet></Outlet>
-                        </div>
-
-                    </div>
+                    <Outlet></Outlet>
                 </div>
             </div>
-            <div className='bg-[#FAFDF0] flex-1 flex items-center h-full'>
-                <div className='flex-1 '>
-                    <img src={authImage} className='mx-auto ' alt="" />
-                </div>
+            <div className='hidden md:flex bg-[#FAFDF0] items-center justify-center'>
+                <img src={authImage} className='mx-auto max-w-sm lg:max-w-md' alt="" />
             </div>
         </div>
     );

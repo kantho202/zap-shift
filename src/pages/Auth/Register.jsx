@@ -64,10 +64,10 @@ const Register = () => {
         })
     }
     return (
-        <div className="card  w-full max-w-lg pt-14  pl-40 bg-white">
+        <div className="card w-full max-w-lg pt-10 px-4 sm:px-8 bg-white">
                     <div className="card-body">
-                        <h1 className="text-2xl lg:text-3xl font-extrabold text-[42px]"> Create an Account</h1>
-                        <p className='text-base font-normal'>Register with ZapShift </p>
+                        <h1 className="text-2xl sm:text-3xl font-extrabold">Create an Account</h1>
+                        <p className='text-base font-normal'>Register with ZapShift</p>
 
                         <form onSubmit={handleSubmit(handleRegister)}>
 

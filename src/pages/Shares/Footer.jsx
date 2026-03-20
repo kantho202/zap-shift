@@ -3,15 +3,14 @@ import Logo from '../../components/Logo/Logo';
 
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal rounded-[32px] footer-center footer-bg text-primary-content p-10 ">
+    <footer className="footer footer-horizontal rounded-[32px] footer-center text-primary-content p-8 mt-10">
       <aside>
         <Logo></Logo>
-        <p className="font-bold">
-          ACME Industries Ltd.
-          <br />
-          Providing reliable tech since 1992
+        <p className="font-bold text-center">
+          Zap Shift Courier<br />
+          Fast. Reliable. Delivered.
         </p>
-        <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
+        <p className='text-sm'>Copyright © {new Date().getFullYear()} - All right reserved</p>
       </aside>
       <nav>
         <div className="grid grid-flow-col gap-4">

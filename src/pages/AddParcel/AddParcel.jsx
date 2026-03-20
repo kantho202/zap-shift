@@ -85,8 +85,8 @@ const AddParcel = () => {
     }
 
     return (
-        <div className='bg-white mt-8 px-26 rounded-4xl mb-20 py-20'>
-            <h1 className='font-extrabold text-[56px] text-secondary '>Add Parcel</h1>
+        <div className='bg-white mt-8 px-4 sm:px-10 md:px-16 rounded-4xl mb-20 py-10 md:py-20'>
+            <h1 className='font-extrabold text-3xl sm:text-4xl md:text-[56px] text-secondary'>Add Parcel</h1>
             <form onSubmit={handleSubmit(handleSendParcel)}>
                 {/* document */}
                 <div>

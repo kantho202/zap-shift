@@ -54,21 +54,19 @@ const Navbar = () => {
                     {links}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end gap-2">
                 {
                     user ? <>
-                        <Link to="/login" onClick={handleSignOut} className='btn mr-3'>Signout</Link>
-                        <Link to="/rider" className="btn btn-primary text-secondary rounded-[10px]">Be a rider</Link>
+                        <Link to="/login" onClick={handleSignOut} className='btn btn-sm md:btn-md mr-1'>Signout</Link>
+                        <Link to="/rider" className="btn btn-sm md:btn-md btn-primary text-secondary rounded-[10px] hidden sm:flex">Be a rider</Link>
                     </>
                     :
                     <>
-                     <Link  to="/login" className="btn mr-3 rounded-[10px]">SignIn</Link>
-                     <Link to="/rider" className="btn btn-primary text-secondary rounded-[10px]">Be a rider</Link>
+                     <Link to="/login" className="btn btn-sm md:btn-md mr-1 rounded-[10px]">SignIn</Link>
+                     <Link to="/rider" className="btn btn-sm md:btn-md btn-primary text-secondary rounded-[10px] hidden sm:flex">Be a rider</Link>
                     </>
-
                 }
-
-                <BsArrowUpRightCircleFill size={35} color='text-primary' />
+                <BsArrowUpRightCircleFill size={28} className='text-primary hidden md:block' />
             </div>
         </div>
     );

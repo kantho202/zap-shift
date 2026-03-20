@@ -22,16 +22,16 @@ const Delivery = () => {
     ]
     return (
         <div className=''>
-            <div className='border-t-2 border-dashed pb-20 text-secondary'></div>
+            <div className='border-t-2 border-dashed pb-10 text-secondary'></div>
             {
-                delivery.map(deliver=>
-                    <div className='flex items-center justify-end p-8 gap-12 bg-white mb-6 rounded-3xl'>
-                        <div>
-                            <img src={deliver.image} alt="" />
+                delivery.map((deliver, i) =>
+                    <div key={i} className='flex flex-col md:flex-row items-center gap-8 bg-white mb-6 rounded-3xl p-6 md:p-8'>
+                        <div className='flex-shrink-0'>
+                            <img src={deliver.image} alt="" className='w-32 md:w-auto mx-auto' />
                         </div>
-                         <div className='border-r-2 border-dashed pb-20 text-secondary'></div>
-                        <div className='border-dashed border-to-l'>
-                            <h1 className='text-2xl font-extrabold text-secondary pb-4'>{deliver.title}</h1>
+                        <div className='hidden md:block border-r-2 border-dashed self-stretch'></div>
+                        <div className='text-center md:text-left'>
+                            <h1 className='text-xl md:text-2xl font-extrabold text-secondary pb-4'>{deliver.title}</h1>
                             <p>{deliver.description}</p>
                         </div>
                     </div>

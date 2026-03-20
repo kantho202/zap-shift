@@ -23,10 +23,10 @@ const LogIn = () => {
     }
     
     return (
-         <div className="card  w-full max-w-lg pt-14  pl-40 bg-white">
+         <div className="card w-full max-w-lg pt-10 px-4 sm:px-8 bg-white">
                     <div className="card-body">
-                        <h1 className="text-2xl lg:text-3xl font-extrabold text-[42px]">Welcome Back</h1>
-                        <p className='text-base font-normal'>Login with ZapShift  </p>
+                        <h1 className="text-2xl sm:text-3xl font-extrabold">Welcome Back</h1>
+                        <p className='text-base font-normal'>Login with ZapShift</p>
 
                         <form  onSubmit={handleSubmit(handleLogIn)}>
 

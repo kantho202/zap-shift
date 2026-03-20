@@ -52,10 +52,9 @@ const UsersManagement = () => {
             })
     }
     return (
-        <div>
-            <h1 className="text-3xl">Users management{users.length} </h1>
-
-            <div className='flex flex-col py-5 justify-center items-center'>
+        <div className='p-4 md:p-6'>
+            <h1 className="text-2xl font-bold mb-4">Users Management ({users.length})</h1>
+            <div className='flex py-5 justify-center items-center'>
             {/* <h1>Search text {searchText}</h1> */}
                     
                 <label className="input">
@@ -93,7 +92,7 @@ const UsersManagement = () => {
 
             </div>
             <div className="overflow-x-auto">
-                <table className="table">
+                <table className="table min-w-[700px]">
                     {/* head */}
                     <thead>
                         <tr>
